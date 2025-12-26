@@ -3,7 +3,7 @@
 ## Objective
 The goal of this project is to build a **fully functional Security Operations Center (SOC) home lab** that simulates an enterprise environment for hands-on cybersecurity monitoring, detection, and response.  
 
-This lab provides a safe, isolated environment to collect, analyze, and alert on both **network** and **endpoint telemetry**, using industry-grade tools such as **Security Onion**, **Elastic Stack**, **Wazuh**, and **pfSense**.  
+This lab provides a safe, isolated environment to collect, analyze, and alert on both **network** and **endpoint telemetry**, using industry-grade tools such as **Wazuh**, **pfSense**, **Security Onion**, and **Elastic Stack**.  
 
 The objective is to gain real-world experience with SIEM, IDS/IPS, EDR, and firewall technologies while learning to hunt and respond to threats using open-source security tools.
 
