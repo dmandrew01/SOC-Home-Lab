@@ -8,9 +8,9 @@ This lab provides a safe, isolated environment to collect, analyze, and alert on
 The objective is to gain real-world experience with SIEM, IDS/IPS, EDR, and firewall technologies while learning to hunt and respond to threats using open-source security tools.
 
 ## Skills Learned
-- SIEM deployment and management (Security Onion, Elastic, Wazuh)
+- SIEM deployment and management (Wazuh, Security Onion, Elastic)
 - IDS/IPS configuration using Zeek and Suricata
-- Endpoint telemetry and agent management (Elastic Agent, Wazuh Agent, Sysmon)
+- Endpoint telemetry and agent management (Wazuh Agent, Sysmon, Elastic Agent)
 - Log ingestion, normalization, and analysis across Windows and Linux systems
 - Network segmentation and routing with pfSense
 - Writing and tuning detection rules for Sysmon and Suricata
@@ -22,10 +22,10 @@ The objective is to gain real-world experience with SIEM, IDS/IPS, EDR, and fire
 ## Tools Used
 
 ### SIEM & Detection
-- **Security Onion 2.4** – Includes Zeek, Suricata, Elastic, SOC UI
-- **Elastic Stack** – Elasticsearch, Kibana, Fleet
 - **Wazuh** – SIEM + EDR platform
 - **Sysmon** – Endpoint process and telemetry monitoring (SwiftOnSecurity config)
+- **Security Onion 2.4** – Includes Zeek, Suricata, Elastic, SOC UI
+- **Elastic Stack** – Elasticsearch, Kibana, Fleet
 
 ### Endpoints
 - **Windows 10/11 VM** – Sysmon + Elastic/Wazuh Agent
@@ -53,7 +53,7 @@ The objective is to gain real-world experience with SIEM, IDS/IPS, EDR, and fire
   - **NAT Network** – For Internet access  
 - Designed topology for Security Onion, pfSense, and endpoints to communicate safely within isolated subnets.
 
-### **Deployed Security Onion (Standalone Mode)**
+### **Deployed Wazuh Server and pfsense Server**
 - Created a new VM with:
   - **RAM:** 12 GB  
   - **CPU:** 6 vCPUs  
@@ -61,13 +61,21 @@ The objective is to gain real-world experience with SIEM, IDS/IPS, EDR, and fire
 - Attached two NICs:
   - Adapter 1 → Host-only (Management)  
   - Adapter 2 → Internal Network “MONITORED”  
-- Installed Security Onion from ISO and chose **Standalone Deployment**.
+- Installed Wazuh from ISO.
 - Assigned Adapter 1 as management and Adapter 2 as sniffing interface.
 - Completed setup and accessed the SOC UI via browser (HTTPS on mgmt IP).
 
-### **Configured Endpoint Monitoring**
+### **Deployed Wazuh agent and Configured Endpoint Monitoring**
 #### Windows Endpoint
-- Installed Windows 10/11 VM connected to the monitored network.
+- Installed Wazuh agent on Ubuntu 22.04 and Windows 10/11 VM connected to the monitored network.
 - Installed **Sysmon** using SwiftOnSecurity config:
   ```powershell
   .\sysmon64.exe -accepteula -i sysmonconfig-export.xml
+
+## Screenshots
+- <a href="https://github.com/dmandrew01/portfolio/blob/main/images/SOC%20HomeLab%20VMs.png">Screenshot of VMs I am using in my SOC Home Lab</a>
+- <a href="https://github.com/dmandrew01/portfolio/blob/main/images/wazuh%20active%20agents.png">Screenshot of active agents (Ubuntu and Windows 11 VMs)</a>
+- <a href="https://github.com/dmandrew01/portfolio/blob/main/images/wazuh%20agent%20dashboard.png">Screenshot of Wazuh Dashboard on Ubuntu and Windows 11 VMs</a>
+- <a href="https://github.com/dmandrew01/portfolio/blob/main/images/wazuh%20agent%20dashboard2.png">Screenshot of Wazuh Dasboard showing active alerts and Threat Monitoring Dashboard</a>
+- <a href="https://github.com/dmandrew01/portfolio/blob/main/images/wazuh%20vm.png">Screenshot of the main Wazuh Management Server showing Wazuh is actively running</a>
+- <a href="https://github.com/dmandrew01/portfolio/blob/main/images/pfsense%20vm.png">Screenshot of pfsense Server running</a>
