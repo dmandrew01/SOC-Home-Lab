@@ -1,4 +1,4 @@
-# SOC Home Lab Build – Security Onion, Elastic, Wazuh & pfSense
+# SOC Home Lab Build – Wazuh & pfSense, Security Onion, Elastic
 
 ## Objective
 The goal of this project is to build a **fully functional Security Operations Center (SOC) home lab** that simulates an enterprise environment for hands-on cybersecurity monitoring, detection, and response.  
